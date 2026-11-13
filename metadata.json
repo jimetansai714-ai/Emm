@@ -1,0 +1,6 @@
+{
+  "name": "Privacy Policy — eMMC List (PYONELAY-mobile)",
+  "description": "Official Google Play Store compliant Privacy Policy and Data Safety documentation for the eMMC List Android application by PYONELAY-mobile.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

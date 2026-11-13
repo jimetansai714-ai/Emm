@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — eMMC List | PYONELAY-mobile</title>
+  <meta name="description" content="Official Google Play Store Privacy Policy and Data Safety disclosure for the eMMC List Android application developed by PYONELAY-mobile." />
+  <meta property="og:title" content="Privacy Policy — eMMC List | PYONELAY-mobile" />
+  <meta property="og:description" content="Official Google Play Store Privacy Policy and Data Safety disclosure for the eMMC List Android application developed by PYONELAY-mobile." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-canvas: #0f172a;
+      --bg-card: #1e293b;
+      --bg-elevated: #172033;
+      --border-subtle: rgba(148, 163, 184, 0.16);
+      --border-accent: rgba(56, 189, 248, 0.35);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-sky: #38bdf8;
+      --accent-sky-soft: rgba(56, 189, 248, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    code, .mono {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    a {
+      color: var(--accent-sky);
+      text-decoration: none;
+      transition: color 150ms cubic-bezier(0.16, 1, 0.3, 1), opacity 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    a:hover {
+      text-decoration: underline;
+      opacity: 0.92;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent-sky);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Top Bar Contract: 3 Zones */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .brand-wordmark {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .brand-wordmark:hover {
+      text-decoration: none;
+    }
+
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .topnav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topnav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .topnav a:hover {
+      color: var(--text-primary);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .topbar-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #0f172a;
+      background-color: var(--accent-sky);
+      border-radius: 0.5rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), opacity 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .topbar-cta:hover {
+      text-decoration: none;
+      opacity: 0.92;
+    }
+
+    /* Main Container */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      flex: 1;
+    }
+
+    /* Hero Header */
+    .hero-header {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent-sky);
+      margin-bottom: 1rem;
+    }
+
+    .hero-meta .sep {
+      color: var(--text-muted);
+      user-select: none;
+    }
+
+    .hero-meta .muted {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-wrap: balance;
+      margin-bottom: 1rem;
+    }
+
+    .hero-lead {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      max-width: 72ch;
+      line-height: 1.7;
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .summary-item-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .summary-item-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Content Layout Grid */
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .policy-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      padding: 2rem 2.25rem;
+    }
+
+    .section-index {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-sky);
+      margin-bottom: 0.375rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+      margin-bottom: 1rem;
+      text-wrap: balance;
+    }
+
+    .policy-prose {
+      color: var(--text-secondary);
+      font-size: 0.96875rem;
+      max-width: 72ch;
+    }
+
+    .policy-prose p + p {
+      margin-top: 1rem;
+    }
+
+    .policy-prose strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .code-inline {
+      background-color: var(--bg-canvas);
+      color: var(--accent-sky);
+      border: 1px solid var(--border-subtle);
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.375rem;
+      font-size: 0.875em;
+    }
+
+    .callout-box {
+      margin-top: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-accent);
+      border-radius: 0.75rem;
+      color: var(--text-primary);
+      font-size: 0.96875rem;
+      line-height: 1.65;
+    }
+
+    /* Data Safety Table / Grid */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .spec-row {
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.75rem;
+      padding: 1.125rem 1.25rem;
+    }
+
+    .spec-row-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .spec-row-desc {
+      font-size: 0.84375rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Clean List */
+    .policy-list {
+      list-style: none;
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .policy-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      color: var(--text-secondary);
+      font-size: 0.96875rem;
+      max-width: 72ch;
+    }
+
+    .policy-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent-sky);
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.375rem;
+      transition: border-color 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .contact-item:hover {
+      border-color: var(--border-accent);
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .contact-value {
+      font-size: 0.96875rem;
+      font-weight: 600;
+      color: var(--accent-sky);
+      word-break: break-word;
+    }
+
+    .contact-value.plain {
+      color: var(--text-primary);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .topbar-inner {
+        padding: 0.75rem 1rem;
+        gap: 1rem;
+      }
+
+      .topnav {
+        display: none;
+      }
+
+      .container {
+        padding: 1.5rem 1rem 3.5rem;
+      }
+
+      .hero-header,
+      .policy-card {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .summary-strip,
+      .spec-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#" class="brand-wordmark">PYONELAY-mobile</a>
+      <nav class="topnav" aria-label="Policy sections">
+        <a href="#overview">Overview</a>
+        <a href="#uuid-scope">App-Scoped UUID</a>
+        <a href="#authorization">Authorization</a>
+        <a href="#data-safety">Data Safety</a>
+        <a href="#retention">Data Deletion</a>
+      </nav>
+      <a href="#contact" class="topbar-cta">Contact Developer</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-header" aria-labelledby="policy-main-title">
+      <div class="hero-meta">
+        <span>PYONELAY-mobile</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span class="muted">Android Application Documentation</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span class="muted mono">Effective Date: November 13, 2026</span>
+      </div>
+      <h1 id="policy-main-title" class="hero-title">Privacy Policy — eMMC List</h1>
+      <p class="hero-lead">
+        This Privacy Policy explains how <strong>eMMC List</strong>, developed and published by <strong>PYONELAY-mobile</strong>, handles technical installation data in strict compliance with Google Play Store Developer Program Policies and Google Play Data Safety requirements.
+      </p>
+
+      <div class="summary-strip">
+        <div>
+          <div class="summary-item-label">Account Registration</div>
+          <div class="summary-item-value">Not Required</div>
+        </div>
+        <div>
+          <div class="summary-item-label">Personal Data Collected</div>
+          <div class="summary-item-value">Zero Personal Data</div>
+        </div>
+        <div>
+          <div class="summary-item-label">Third-Party Ads &amp; Sharing</div>
+          <div class="summary-item-value">Zero Ads · Zero Sharing</div>
+        </div>
+        <div>
+          <div class="summary-item-label">Technical Identifier</div>
+          <div class="summary-item-value mono">App-Scoped UUID</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="policy-grid">
+      <!-- 01. App Overview -->
+      <section id="overview" class="policy-card" aria-labelledby="heading-overview">
+        <span class="section-index mono">01 · Application Scope</span>
+        <h2 id="heading-overview" class="section-title">App Overview</h2>
+        <div class="policy-prose">
+          <p>
+            <strong>eMMC List</strong> is a dedicated technical hardware reference and memory chip (eMMC/UFS) specification lookup tool built for mobile repair technicians and hardware engineers. The application provides integrated IC part numbers, pinout references, density configurations, and device compatibility specifications.
+          </p>
+          <p>
+            The application is engineered to operate reliably in both <strong>offline and online</strong> environments, enabling repair technicians to query local cached hardware specifications at the workbench while synchronizing updated memory chip reference tables when an internet connection is available.
+          </p>
+        </div>
+      </section>
+
+      <!-- 02. No Account Registration -->
+      <section id="no-account" class="policy-card" aria-labelledby="heading-account">
+        <span class="section-index mono">02 · Zero Identity Profiling</span>
+        <h2 id="heading-account" class="section-title">No Account Registration Required</h2>
+        <div class="policy-prose">
+          <p>
+            <strong>eMMC List</strong> does not require or offer user account registration, sign-up forms, password logins, personal names, email addresses, or user profiles to access its technical reference functions.
+          </p>
+          <p>
+            You can launch and use the application without submitting any personally identifiable information (PII) or linking any external social or cloud identity provider.
+          </p>
+        </div>
+      </section>
+
+      <!-- 03. App-Scoped Device UUID -->
+      <section id="uuid-scope" class="policy-card" aria-labelledby="heading-uuid">
+        <span class="section-index mono">03 · Technical Installation Identifier</span>
+        <h2 id="heading-uuid" class="section-title">App-Scoped Device UUID (<code class="code-inline">EMMC-...</code>)</h2>
+        <div class="policy-prose">
+          <p>
+            Upon initial installation, the application generates a random, app-scoped installation identifier formatted with the prefix <code class="code-inline">EMMC-...</code> (UUID). This identifier is stored locally within the application's private sandbox storage on your Android device.
+          </p>
+          <p>
+            The app-scoped UUID is used <strong>solely</strong> for:
+          </p>
+          <ul class="policy-list">
+            <li>Configuration synchronization and reference catalog version checks.</li>
+            <li>Offline and online database access verification.</li>
+            <li>Technical authorization pairing for extended specification tables.</li>
+          </ul>
+          <div class="callout-box">
+            <strong>Strict Hardware &amp; Personal Privacy Guarantee:</strong> <strong>eMMC List</strong> explicitly does <strong>NOT</strong> collect, read, transmit, or access hardware IMEI numbers, device serial numbers, MAC addresses, SIM card or phone numbers, address book contacts, photos/media files, or GPS/precise location data.
+          </div>
+        </div>
+      </section>
+
+      <!-- 04. Access Key / Authorization Token -->
+      <section id="authorization" class="policy-card" aria-labelledby="heading-auth">
+        <span class="section-index mono">04 · Technical Database Authorization</span>
+        <h2 id="heading-auth" class="section-title">Access Key &amp; Authorization Token</h2>
+        <div class="policy-prose">
+          <p>
+            <strong>eMMC List</strong> includes standard hardware lookup specifications and supports technical token verification for extended memory chip reference datasets:
+          </p>
+          <div class="callout-box">
+            Extended database features are unlocked using an authorized Access Key / Activation Token issued by the developer and paired with your installation UUID.
+          </div>
+          <p style="margin-top: 1rem;">
+            When an authorized Access Key / Activation Token is entered into the application, the app verifies the token against the app-scoped <code class="code-inline">EMMC-...</code> installation UUID over an encrypted HTTPS connection (`TLS 1.3`) and caches the verification state locally so that extended reference tables remain accessible during offline repair sessions.
+          </p>
+        </div>
+      </section>
+
+      <!-- 05. Data Safety, Ads & Third-Party Sharing -->
+      <section id="data-safety" class="policy-card" aria-labelledby="heading-safety">
+        <span class="section-index mono">05 · Google Play Data Safety Disclosure</span>
+        <h2 id="heading-safety" class="section-title">Data Safety, Ads &amp; Third-Party Sharing</h2>
+        <div class="policy-prose">
+          <p>
+            In accordance with Google Play Store Data Safety standards, <strong>PYONELAY-mobile</strong> maintains a strict zero-monetization-tracking architecture:
+          </p>
+        </div>
+
+        <div class="spec-grid">
+          <div class="spec-row">
+            <div class="spec-row-title">Zero Personal Data Collected</div>
+            <div class="spec-row-desc">The application does not collect names, emails, phone numbers, contacts, precise/coarse location, or biometric data.</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-row-title">Zero Third-Party Advertisements</div>
+            <div class="spec-row-desc">Contains no ad networks, banner ads, interstitials, or behavioral advertising SDKs.</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-row-title">Zero Data Sold or Shared</div>
+            <div class="spec-row-desc">No user or installation records are ever sold, rented, traded, or shared with third parties, data brokers, or marketers.</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-row-title">Encrypted Technical Sync</div>
+            <div class="spec-row-desc">All online specification sync requests and UUID token checks are transmitted securely via HTTPS/TLS encryption.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06. Data Retention & Deletion -->
+      <section id="retention" class="policy-card" aria-labelledby="heading-retention">
+        <span class="section-index mono">06 · User Control &amp; Right to Erasure</span>
+        <h2 id="heading-retention" class="section-title">Data Retention &amp; Deletion</h2>
+        <div class="policy-prose">
+          <p>
+            You retain full control over the locally stored database cache and your app-scoped installation UUID at all times:
+          </p>
+          <ul class="policy-list">
+            <li>
+              <strong>Local Data Reset &amp; Removal:</strong> You can permanently delete all locally stored specification caches, configuration preferences, and reset your app-scoped <code class="code-inline">EMMC-...</code> UUID at any time by clearing the application data in your Android system settings (<em>Settings &rarr; Apps &rarr; eMMC List &rarr; Storage &rarr; Clear Data</em>) or by uninstalling the application.
+            </li>
+            <li>
+              <strong>Revoking a Paired UUID Record:</strong> If you have paired your installation UUID with an authorized Access Key / Activation Token and wish to permanently revoke or delete the paired UUID association from our authorization records, simply contact the developer using any of the support channels below with your <code class="code-inline">EMMC-...</code> identifier. Requests are processed promptly within 48 hours.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 07. Contact Developer -->
+      <section id="contact" class="policy-card" aria-labelledby="heading-contact">
+        <span class="section-index mono">07 · Official Developer Support</span>
+        <h2 id="heading-contact" class="section-title">Contact Developer</h2>
+        <div class="policy-prose">
+          <p>
+            If you have any questions regarding this Privacy Policy, Google Play Data Safety compliance, or wish to request revocation of a paired installation UUID, please contact <strong>PYONELAY-mobile</strong> directly:
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span class="contact-label">Developer / Brand</span>
+            <span class="contact-value plain">PYONELAY-mobile</span>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Email Support</span>
+            <a href="mailto:jimetansai714@gmail.com" class="contact-value mono">jimetansai714@gmail.com</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">WhatsApp / Viber</span>
+            <a href="https://wa.me/959977500588" target="_blank" rel="noopener noreferrer" class="contact-value mono">+95 9977500588</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Telegram</span>
+            <a href="https://t.me/pl14564" target="_blank" rel="noopener noreferrer" class="contact-value mono">@pl14564</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 PYONELAY-mobile. All rights reserved.</span>
+      <span>Privacy Policy — eMMC List · Effective Date: November 13, 2026</span>
+    </div>
+  </footer>
+</body>
+</html>
