@@ -1,21 +1,1344 @@
-<!doctype html>
-<html lang="en" class="dark scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy — eMMC List | PYONELAY-mobile</title>
-    <meta name="description" content="Official Google Play Store compliant Privacy Policy and Data Safety disclosure for the eMMC List Android application developed by PYONELAY-mobile." />
-    <meta property="og:title" content="Privacy Policy — eMMC List | PYONELAY-mobile" />
-    <meta property="og:description" content="Official Google Play Store compliant Privacy Policy and Data Safety disclosure for the eMMC List Android application developed by PYONELAY-mobile." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https:.//fonts.googleapis.com" />
-    <link rel="preconnect" href="https:.//fonts.gstatic.com" crossorigin />
-    <link href="https:.//fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body class="bg-[#0f172a] text-[#f8fafc] antialiased selection:bg-[#38bdf8]/20 selection:text-[#38bdf8]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PYONELAY-mobile — Web Admin Panel (Key Generator, Profit &amp; IC Database)</title>
+  <style>
+    :root {
+      --bg: #F8F9FA;
+      --surface: #FFFFFF;
+      --primary: #1D63DC;
+      --primary-soft: #E8F1FF;
+      --primary-border: #BFDBFE;
+      --border: #E2E8F0;
+      --text: #0F172A;
+      --muted: #64748B;
+      --danger: #EF4444;
+      --danger-soft: #FEF2F2;
+      --success: #059669;
+      --success-soft: #ECFDF5;
+      --success-border: #A7F3D0;
+      --warning: #D97706;
+      --warning-soft: #FFFBEB;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: 40px; }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .chip-logo {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--primary-soft); border: 1.5px solid var(--primary-border);
+      display: grid; place-items: center; font-weight: 800; color: var(--primary); font-size: 13px;
+    }
+    .brand h1 { font-size: 17px; font-weight: 800; letter-spacing: -0.2px; }
+    .brand h1 span { color: var(--primary); font-weight: 600; }
+    .brand p { font-size: 11.5px; color: var(--muted); word-break: break-all; }
+    .conn-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;
+      background: var(--success-soft); color: var(--success); border: 1px solid var(--success-border);
+    }
+    .top-profit-banner {
+      max-width: 1240px;
+      margin: 18px auto 0;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1.5px solid var(--primary-border);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+    }
+    .stat-card.profit {
+      background: var(--success-soft);
+      border-color: var(--success-border);
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .stat-card.profit .stat-label { color: var(--success); }
+    .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .stat-card.profit .stat-value { color: var(--success); }
+    .stat-sub {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 2px;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1240px;
+      margin: 18px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 450px 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 960px) { .container { grid-template-columns: 1fr; } }
+    .stack { display: flex; flex-direction: column; gap: 18px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+    }
+    .card.keygen-card {
+      border: 2px solid var(--primary-border);
+      background: linear-gradient(180deg, #F5F9FF 0%, #FFFFFF 100%);
+    }
+    .card h2 {
+      font-size: 15.5px; font-weight: 800; margin-bottom: 12px;
+      display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .tabs {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+      background: #F1F5F9; padding: 4px; border-radius: 10px; margin-bottom: 14px;
+    }
+    .tab-btn {
+      padding: 9px 10px; border: none; border-radius: 8px; font-weight: 700;
+      font-size: 12.5px; cursor: pointer; background: transparent; color: var(--muted);
+    }
+    .tab-btn.active { background: var(--surface); color: var(--primary); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .field { margin-bottom: 11px; }
+    .field label { display: block; font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 5px; }
+    .field input, .field textarea {
+      width: 100%; padding: 10px 12px; border: 1.5px solid var(--border);
+      border-radius: 10px; font-size: 14px; color: var(--text); background: #FCFDFE;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--primary); background: #FFF; }
+    .inline-spec-row {
+      display: grid; grid-template-columns: 95px 1fr; align-items: center; gap: 10px; margin-bottom: 10px;
+    }
+    .inline-spec-row span {
+      font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 13.5px; color: var(--text);
+    }
+    .btn {
+      padding: 11px 16px; border-radius: 10px; border: none; font-weight: 700;
+      font-size: 13.5px; cursor: pointer; transition: 0.15s;
+    }
+    .btn-primary { background: var(--primary); color: #FFF; width: 100%; }
+    .btn-primary:hover { opacity: 0.93; }
+    .btn-success { background: var(--success); color: #FFF; }
+    .btn-outline { background: var(--primary-soft); color: var(--primary); border: 1px solid var(--primary-border); }
+    .btn-danger { background: var(--danger-soft); color: var(--danger); border: 1px solid #FECACA; padding: 5px 10px; font-size: 11.5px; }
+    .status-box {
+      padding: 10px 12px; border-radius: 10px; margin-bottom: 12px; font-size: 12.5px; font-weight: 700; display: none;
+    }
+    .status-ok { background: var(--success-soft); color: var(--success); border: 1px solid var(--success-border); }
+    .status-warn { background: var(--warning-soft); color: var(--warning); border: 1px solid #FDE68A; }
+    .generated-key-box {
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--success-soft);
+      border: 1.5px solid var(--success-border);
+      display: none;
+    }
+    .generated-key-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: 0.5px;
+      margin: 4px 0 10px;
+      word-break: break-all;
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); font-size: 13px; }
+    th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); background: #F8FAFC; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+    .badge-group {
+      display: inline-block; padding: 3px 8px; border-radius: 6px;
+      background: var(--primary-soft); color: var(--primary); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 12px;
+    }
+    .badge-profit {
+      display: inline-block; padding: 3px 8px; border-radius: 6px;
+      background: var(--success-soft); color: var(--success); font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 12px;
+      border: 1px solid var(--success-border);
+    }
+    .badge-skip {
+      display: inline-block; padding: 2px 7px; border-radius: 6px;
+      background: var(--warning-soft); color: var(--warning); font-size: 11px; font-weight: 700;
+    }
+    .badge-new {
+      display: inline-block; padding: 2px 7px; border-radius: 6px;
+      background: var(--success-soft); color: var(--success); font-size: 11px; font-weight: 700;
+    }
+    .hint-box {
+      background: #F8FAFC; border: 1px dashed var(--border); border-radius: 10px;
+      padding: 10px 12px; font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="chip-logo">PY</div>
+      <div>
+        <h1>PYONELAY<span>-mobile</span> — Admin Panel</h1>
+        <p>Firebase Link: https://new-emmc-default-rtdb.asia-southeast1.firebasedatabase.app/</p>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span id="connStatus" class="conn-pill">● Ready &amp; Connected</span>
+      <button id="refreshBtn" class="btn btn-outline" style="padding:7px 12px; font-size:12px;">Sync Now</button>
+    </div>
+  </header>
 
+  <!-- Top Sales & Auto-Profit Summary Banner (30,000 MMK per 1-Device Key) -->
+  <section class="top-profit-banner">
+    <div class="stat-card">
+      <div>
+        <div class="stat-label">TOTAL SOLD LICENSES (ရောင်းချပြီး Key အရေအတွက်)</div>
+        <div id="totalSoldCountText" class="stat-value">0</div>
+        <div class="stat-sub">1 Device UUID = 1 Lifetime Key</div>
+      </div>
+      <span class="badge-group" style="font-size:13px; padding:6px 10px;">LIFETIME PRO</span>
+    </div>
+
+    <div class="stat-card profit">
+      <div>
+        <div class="stat-label">TOTAL PROFIT / REVENUE (စုစုပေါင်း အမြတ်ငွေ)</div>
+        <div id="totalProfitMmkText" class="stat-value">0 MMK</div>
+        <div class="stat-sub">Fixed Price: +30,000 MMK per Key (Auto-Calculated)</div>
+      </div>
+      <span class="badge-profit" style="font-size:13px; padding:6px 10px;">+30,000 MMK / Key</span>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="stack">
+      <!-- 1. 1-Device Lifetime Key Generator Card -->
+      <section class="card keygen-card">
+        <h2>
+          <span>🔑 1. 1-Device Key Generator (Key ထုတ်ရန်)</span>
+          <span class="badge-profit">30,000 MMK / Key</span>
+        </h2>
+
+        <div id="licenseStatusBox" class="status-box"></div>
+
+        <div class="hint-box">
+          App ထဲရှိ <strong>Settings → License &amp; Activation</strong> မှ Customer ပို့ပေးသော <strong>Device UUID</strong> (ဥပမာ <code>PYONE-A1B2-C3D4</code>) ကို ထည့်ပြီး Key ထုတ်ပေးပါ။<br/>
+          ထွက်လာသော Key သည် ထိုဖုန်း (1 Device) တစ်လုံးတည်းတွင်သာ Online ဖြစ်စေ Offline ဖြစ်စေ သီးသန့်အလုပ်လုပ်ပြီး စာရင်းထဲတွင် <strong>+30,000 MMK</strong> အလိုအလျောက် ပေါင်းထည့်ပေးပါမည်။
+        </div>
+
+        <form id="keyGenForm">
+          <div class="field">
+            <label>CUSTOMER DEVICE UUID (App ထဲမှ Copy ယူထားသော UUID ထည့်ရန်)</label>
+            <input type="text" id="customerUuidInput" placeholder="PYONE-XXXX-XXXX" required style="text-transform:uppercase; font-weight:800;" />
+          </div>
+          <div class="field">
+            <label>CUSTOMER NAME / PHONE / NOTE (ဝယ်သူအမည် သို့မဟုတ် မှတ်ချက် - Optional)</label>
+            <input type="text" id="customerNameInput" placeholder="ဥပမာ - Ko Kyaw (09977...)" />
+          </div>
+          <button type="submit" class="btn btn-primary">🔑 Generate Lifetime Key (+30,000 MMK)</button>
+        </form>
+
+        <div id="generatedKeyResultBox" class="generated-key-box">
+          <div style="font-size:11px; font-weight:800; color:var(--success); text-transform:uppercase;">
+            GENERATED LIFETIME KEY FOR <span id="generatedForUuidLabel"></span>
+          </div>
+          <div id="generatedKeyText" class="generated-key-value">PYPRO-XXXX-XXXX-XXXX</div>
+          <div style="display:flex; gap:8px;">
+            <button type="button" id="copyGeneratedKeyBtn" class="btn btn-success" style="width:100%; padding:9px 14px;">
+              📋 Copy Activation Key
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Add New IC Data Card -->
+      <section class="card">
+        <h2>
+          <span>2. Add New IC Data</span>
+          <span style="font-size:11.5px; color:var(--muted); font-weight:600;">Full Name Match = Skip</span>
+        </h2>
+
+        <div id="icStatusBox" class="status-box"></div>
+
+        <div class="tabs">
+          <button type="button" id="tabSingleBtn" class="tab-btn active">တခုချင်း ရိုက်ထည့်ရန်</button>
+          <button type="button" id="tabBulkBtn" class="tab-btn">Copy-Paste အများထည့်ရန်</button>
+        </div>
+
+        <form id="singleIcForm">
+          <div class="hint-box">
+            <strong>ပုံစံ:</strong> IC Part Number (အကြီး/အသေး ရသည်) နှင့် <code>ram</code>, <code>rom</code>, <code>group</code> ကို ရိုက်ထည့်ပါ။ နာမည် အပြည့်အစုံ လုံးဝတူညီမှသာ ရှိပြီးသားအဖြစ် သတ်မှတ်ပါမည်။
+          </div>
+          <div class="field">
+            <label>IC LIST / PART NUMBER</label>
+            <input type="text" id="singlePartNumber" placeholder="B514. KKMV500 သို့မဟုတ် JZ171" required />
+          </div>
+          <div class="inline-spec-row">
+            <span>ram -</span>
+            <input type="text" id="singleRam" placeholder="4" required style="padding:9px 12px; border:1.5px solid var(--border); border-radius:10px; font-family:monospace;" />
+          </div>
+          <div class="inline-spec-row">
+            <span>rom -</span>
+            <input type="text" id="singleRom" placeholder="64" required style="padding:9px 12px; border:1.5px solid var(--border); border-radius:10px; font-family:monospace;" />
+          </div>
+          <div class="inline-spec-row">
+            <span>group -</span>
+            <input type="text" id="singleGroup" placeholder="515A" required style="padding:9px 12px; border:1.5px solid var(--border); border-radius:10px; font-family:monospace;" />
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top:6px;">Save Single IC to Database</button>
+        </form>
+
+        <div id="bulkIcSection" style="display:none;">
+          <div class="hint-box">
+            <strong>Copy-Paste Auto ခွဲပေးသည့်စနစ်:</strong><br/>
+            • <code>B514. KKMV500 4 64 515A</code> သို့မဟုတ် <code>B514. KMDV500 4 64 515A</code><br/>
+            • <code>[ 705(A) ] 8 128</code> ခေါင်းစဉ်အောက်တွင် <code>• B813 - KM8V7001JM 8 128</code> ပုံစံဖြင့်လည်း Copy-Paste ထည့်နိုင်ပါသည်။<br/>
+            နာမည်အပြည့်အစုံ လုံးစုံတူညီမှသာ ရှိပြီးသားအဖြစ် ချန်ထားခဲ့ပါမည်။
+          </div>
+          <div class="field">
+            <label>COPY-PASTE IC LIST</label>
+            <textarea id="bulkIcTextarea" rows="7" placeholder="[ 705(A) ] 8 128&#10;• B813-KM8V7001JA 8 128&#10;• B813 - KM8V7001JM 8 128&#10;B514. KKMV500 4 64 515A&#10;B514. KMDV500 4 64 515A"></textarea>
+          </div>
+          <div id="bulkPreviewArea" style="margin-bottom:12px; max-height:220px; overflow-y:auto; display:none;">
+            <table>
+              <thead>
+                <tr>
+                  <th>IC List</th>
+                  <th>RAM</th>
+                  <th>ROM</th>
+                  <th>GROUP</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="bulkPreviewBody"></tbody>
+            </table>
+          </div>
+          <button type="button" id="saveBulkBtn" class="btn btn-primary">Auto ခွဲပြီး အသစ်များကိုသာ Database သို့ထည့်မည်</button>
+        </div>
+      </section>
+
+      <!-- 3. Group Price Card -->
+      <section class="card">
+        <h2>
+          <span>3. PRICE (Group ဈေးနှုန်း သတ်မှတ်ရန်)</span>
+          <span class="badge-group">Group → Price</span>
+        </h2>
+        <div id="priceStatusBox" class="status-box"></div>
+        <div class="hint-box">
+          Group နှင့် ဈေးနှုန်းများကို တစ်ခုချင်းဖြစ်စေ၊ အများကြီး Copy-Paste ဖြစ်စေ ထည့်သွင်းနိုင်ပါသည် (အကြီး/အသေး <code>515a</code> = <code>515A</code> အလိုအလျောက် သိမ်းပေးသည်)။
+        </div>
+
+        <div class="field">
+          <label>GROUP နှင့် PRICE များ ရေးရန် / COPY-PASTE ထည့်ရန်</label>
+          <textarea id="groupPriceTextarea" rows="5" placeholder="515A    10000&#10;515B    30000&#10;515C    67000&#10;705A    72000"></textarea>
+        </div>
+        <button type="button" id="saveGroupPricesBtn" class="btn btn-primary">Save PRICE List to Database</button>
+
+        <div style="margin-top:14px;">
+          <label style="font-size:11.5px; font-weight:700; color:var(--muted);">လက်ရှိ သတ်မှတ်ထားသော GROUP PRICE များ (<span id="groupCountBadge">0</span>)</label>
+          <table>
+            <thead>
+              <tr>
+                <th>GROUP</th>
+                <th>PRICE</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="groupPriceTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div class="stack">
+      <!-- Right Top: Sold Licenses & Profit Accounting Table -->
+      <section class="card">
+        <h2>
+          <span>💰 Sold Licenses &amp; Profit Log (<span id="licenseCountBadge">0</span>)</span>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <input type="text" id="licenseSearchInput" placeholder="Search customer, UUID, or Key..." style="padding:7px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; width:220px;" />
+          </div>
+        </h2>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer / Note</th>
+                <th>Device UUID</th>
+                <th>Activation Key</th>
+                <th>Profit</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="licenseTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Right Bottom: Database IC List Table -->
+      <section class="card">
+        <h2>
+          <span>Database IC List (<span id="icCountBadge">0</span>)</span>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <input type="text" id="searchFilterInput" placeholder="Search IC or Group..." style="padding:7px 12px; border:1.5px solid var(--border); border-radius:8px; font-size:13px; width:200px;" />
+            <button type="button" id="clearAllIcBtn" class="btn btn-danger" style="padding:7px 10px;">Clear All ICs</button>
+          </div>
+        </h2>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>IC List</th>
+                <th>RAM</th>
+                <th>ROM</th>
+                <th>GROUP</th>
+                <th>PRICE (From Group)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="icTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const RTDB_URL = "https://new-emmc-default-rtdb.asia-southeast1.firebasedatabase.app";
+    const LOCAL_STORAGE_KEY = "emmc_rtdb_admin_state_v6";
+    const LICENSE_SECRET_SALT = "PYONELAY_PRO_2026_SALT_V1_MMK30000";
+    const LICENSE_ALPHABET = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+    const LICENSE_PRICE_MMK = 30000;
+
+    let dbChipsMap = {};
+    let groupPricesMap = {};
+    let licensesMap = {};
+
+    const connStatus = document.getElementById("connStatus");
+    const totalSoldCountText = document.getElementById("totalSoldCountText");
+    const totalProfitMmkText = document.getElementById("totalProfitMmkText");
+    const keyGenForm = document.getElementById("keyGenForm");
+    const customerUuidInput = document.getElementById("customerUuidInput");
+    const customerNameInput = document.getElementById("customerNameInput");
+    const licenseStatusBox = document.getElementById("licenseStatusBox");
+    const generatedKeyResultBox = document.getElementById("generatedKeyResultBox");
+    const generatedForUuidLabel = document.getElementById("generatedForUuidLabel");
+    const generatedKeyText = document.getElementById("generatedKeyText");
+    const copyGeneratedKeyBtn = document.getElementById("copyGeneratedKeyBtn");
+    const licenseCountBadge = document.getElementById("licenseCountBadge");
+    const licenseSearchInput = document.getElementById("licenseSearchInput");
+    const licenseTableBody = document.getElementById("licenseTableBody");
+
+    const tabSingleBtn = document.getElementById("tabSingleBtn");
+    const tabBulkBtn = document.getElementById("tabBulkBtn");
+    const singleIcForm = document.getElementById("singleIcForm");
+    const bulkIcSection = document.getElementById("bulkIcSection");
+    const bulkIcTextarea = document.getElementById("bulkIcTextarea");
+    const bulkPreviewArea = document.getElementById("bulkPreviewArea");
+    const bulkPreviewBody = document.getElementById("bulkPreviewBody");
+    const saveBulkBtn = document.getElementById("saveBulkBtn");
+    const icStatusBox = document.getElementById("icStatusBox");
+    const priceStatusBox = document.getElementById("priceStatusBox");
+    const groupPriceTextarea = document.getElementById("groupPriceTextarea");
+    const saveGroupPricesBtn = document.getElementById("saveGroupPricesBtn");
+    const groupPriceTableBody = document.getElementById("groupPriceTableBody");
+    const groupCountBadge = document.getElementById("groupCountBadge");
+    const icTableBody = document.getElementById("icTableBody");
+    const icCountBadge = document.getElementById("icCountBadge");
+    const searchFilterInput = document.getElementById("searchFilterInput");
+    const clearAllIcBtn = document.getElementById("clearAllIcBtn");
+
+    function getBridge() {
+      return window.AndroidAdminBridge || window.AndroidBridge || null;
+    }
+
+    function showBoxMessage(el, msg, isWarn = false) {
+      el.textContent = msg;
+      el.className = "status-box " + (isWarn ? "status-warn" : "status-ok");
+      el.style.display = "block";
+      setTimeout(() => { el.style.display = "none"; }, 6000);
+    }
+
+    // --- 1-Device Deterministic Key Generator (100% Identical to Android LicenseManager.kt) ---
+    function normalizeUuid(rawUuid) {
+      return (rawUuid || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
+    }
+
+    function formatUuidDisplay(rawUuid) {
+      const clean = (rawUuid || "").trim().toUpperCase();
+      if (/^PYONE-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(clean)) {
+        return clean;
+      }
+      const stripped = normalizeUuid(clean).replace(/^PYONE/, "");
+      if (stripped.length >= 8) {
+        return `PYONE-${stripped.substring(0, 4)}-${stripped.substring(4, 8)}`;
+      }
+      return clean;
+    }
+
+    function mixHash32(input, seed) {
+      let h = seed | 0;
+      for (let i = 0; i < input.length; i++) {
+        const c = input.charCodeAt(i);
+        h = (h ^ c) | 0;
+        h = Math.imul(h, 0x5bd1e995);
+        h = (h ^ (h >>> 15)) | 0;
+      }
+      h = (h ^ input.length) | 0;
+      h = Math.imul(h, -0x7a143595);
+      h = (h ^ (h >>> 13)) | 0;
+      h = Math.imul(h, -0x3d4d51cb);
+      h = (h ^ (h >>> 16)) | 0;
+      return h;
+    }
+
+    function intToBlock4(hash) {
+      let out = "";
+      for (let i = 0; i < 4; i++) {
+        const idx = (hash >>> (i * 7)) & 31;
+        out += LICENSE_ALPHABET[idx];
+      }
+      return out;
+    }
+
+    function generateKeyForUuid(rawUuid) {
+      const displayUuid = formatUuidDisplay(rawUuid);
+      const canonUuid = normalizeUuid(displayUuid);
+      if (!canonUuid) return "";
+      const payload = `${canonUuid}|${LICENSE_SECRET_SALT}`;
+      const h1 = mixHash32(payload, 0x13579BDF);
+      const h2 = mixHash32(`${payload}#2`, -0x68905432);
+      const h3 = mixHash32(`${payload}#3`, 0x2468ACE0);
+      return `PYPRO-${intToBlock4(h1)}-${intToBlock4(h2)}-${intToBlock4(h3)}`;
+    }
+
+    function formatMmk(amount) {
+      return Number(amount || 0).toLocaleString("en-US") + " MMK";
+    }
+
+    function formatDateText(ts) {
+      const d = new Date(Number(ts) || Date.now());
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const dd = String(d.getDate()).padStart(2, "0");
+      const hh = String(d.getHours()).padStart(2, "0");
+      const min = String(d.getMinutes()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd} ${hh}:${min}`;
+    }
+
+    function copyToClipboard(text, btnEl, defaultLabel) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => {});
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+      if (btnEl) {
+        btnEl.textContent = "✓ Copied!";
+        setTimeout(() => { btnEl.textContent = defaultLabel; }, 2000);
+      }
+    }
+
+    function cleanPartToken(raw) {
+      return (raw || "")
+        .replace(/^[\s•▪▫●○◦‣⁃*+\-\u2022\u2023\u25E6\u2043\u2219]+/, "")
+        .replace(/^[.,:;=\s]+|[.,:;=\s]+$/g, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toUpperCase();
+    }
+
+    function canonicalPartKey(raw) {
+      return cleanPartToken(raw).replace(/[^A-Z0-9]/g, "");
+    }
+
+    function cleanGroupToken(raw) {
+      return (raw || "")
+        .replace(/^[\s\[\]•▪▫●○◦‣⁃*+\-\u2022]+|[\s\[\]]+$/g, "")
+        .replace(/[()]|group/gi, "")
+        .replace(/^[.,:;\-\s]+|[.,:;\-\s]+$/g, "")
+        .replace(/[.\s]+/g, "")
+        .toUpperCase();
+    }
+
+    function cleanCapacityToken(raw) {
+      return (raw || "").trim()
+        .replace(/\b(gb|mb|ram|rom|storage)\b/gi, "")
+        .replace(/^[.,:;\-\s]+|[.,:;\-\s]+$/g, "")
+        .trim() || (raw || "").trim();
+    }
+
+    function sanitizeKey(str) {
+      const canon = canonicalPartKey(str);
+      return canon || (str || "").trim().toUpperCase().replace(/[.#$\[\]\/\s]+/g, "_");
+    }
+
+    function applyRawSnapshotObject(data, replaceExisting = true) {
+      if (!data || typeof data !== "object") return;
+
+      const rawPrices = data.group_prices || data.prices || data.groups;
+      if (rawPrices && typeof rawPrices === "object") {
+        const nextPrices = replaceExisting ? {} : { ...groupPricesMap };
+        for (const [k, v] of Object.entries(rawPrices)) {
+          if (v && typeof v === "object") {
+            const grp = cleanGroupToken(v.group || v.groupCode || v.name || k);
+            const num = Number(String(v.price ?? v.amount ?? v.value ?? "").replace(/,/g, ""));
+            if (grp && !isNaN(num)) nextPrices[grp] = num;
+          } else {
+            const grp = cleanGroupToken(k);
+            const num = Number(String(v).replace(/,/g, ""));
+            if (grp && !isNaN(num)) nextPrices[grp] = num;
+          }
+        }
+        groupPricesMap = nextPrices;
+      } else if (replaceExisting) {
+        groupPricesMap = {};
+      }
+
+      const rawChips = data.ic_chips || data.ics || data.chips;
+      if (rawChips && typeof rawChips === "object") {
+        const nextChips = replaceExisting ? {} : { ...dbChipsMap };
+        for (const [k, item] of Object.entries(rawChips)) {
+          if (!item || typeof item !== "object") continue;
+          const part = cleanPartToken(item.partNumber || item.ic || item.name || k);
+          const canon = canonicalPartKey(part);
+          if (!part || !canon) continue;
+          const ram = cleanCapacityToken(String(item.ram || item.ramSpec || "---"));
+          const rom = cleanCapacityToken(String(item.rom || item.storage || item.storageSpec || "---"));
+          const group = cleanGroupToken(String(item.group || item.groupCode || "---"));
+          nextChips[canon] = {
+            key: canon,
+            partNumber: part,
+            ram,
+            rom,
+            group,
+            updatedAt: item.updatedAt || Date.now()
+          };
+        }
+        dbChipsMap = nextChips;
+      } else if (replaceExisting) {
+        dbChipsMap = {};
+      }
+
+      const rawLicenses = data.licenses || data.license_sales || data.activations;
+      if (rawLicenses && typeof rawLicenses === "object") {
+        const nextLicenses = replaceExisting ? {} : { ...licensesMap };
+        for (const [k, item] of Object.entries(rawLicenses)) {
+          if (!item || typeof item !== "object") continue;
+          const displayUuid = formatUuidDisplay(item.deviceUuid || item.uuid || k);
+          const canonUuid = normalizeUuid(item.canonicalUuid || displayUuid);
+          if (!canonUuid) continue;
+          const activationKey = item.activationKey || item.key || generateKeyForUuid(displayUuid);
+          const customerName = item.customerName || item.customer || item.note || `Customer (${displayUuid})`;
+          const priceMmk = Number(item.priceMmk || LICENSE_PRICE_MMK);
+          const createdAt = Number(item.createdAt || Date.now());
+          nextLicenses[canonUuid] = {
+            canonicalUuid: canonUuid,
+            deviceUuid: displayUuid,
+            activationKey,
+            customerName,
+            priceMmk,
+            createdAt
+          };
+        }
+        licensesMap = nextLicenses;
+      } else if (replaceExisting) {
+        licensesMap = {};
+      }
+    }
+
+    function serializeCurrentState() {
+      const ic_chips = {};
+      for (const [canonKey, item] of Object.entries(dbChipsMap)) {
+        const cleanPart = cleanPartToken(item.partNumber || canonKey);
+        const key = canonicalPartKey(cleanPart);
+        if (!key) continue;
+        ic_chips[key] = {
+          partNumber: cleanPart,
+          ram: cleanCapacityToken(item.ram),
+          rom: cleanCapacityToken(item.rom),
+          group: cleanGroupToken(item.group),
+          ramSpec: cleanCapacityToken(item.ram),
+          storageSpec: cleanCapacityToken(item.rom),
+          groupCode: cleanGroupToken(item.group),
+          updatedAt: item.updatedAt || Date.now()
+        };
+      }
+      const group_prices = {};
+      for (const [grp, price] of Object.entries(groupPricesMap)) {
+        const cleanGrp = cleanGroupToken(grp);
+        const key = sanitizeKey(cleanGrp);
+        if (!key) continue;
+        group_prices[key] = price;
+      }
+      const licenses = {};
+      for (const [canonUuid, rec] of Object.entries(licensesMap)) {
+        if (!canonUuid) continue;
+        licenses[canonUuid] = {
+          canonicalUuid: canonUuid,
+          deviceUuid: rec.deviceUuid,
+          activationKey: rec.activationKey,
+          customerName: rec.customerName,
+          priceMmk: rec.priceMmk || LICENSE_PRICE_MMK,
+          createdAt: rec.createdAt || Date.now()
+        };
+      }
+      return { ic_chips, group_prices, licenses };
+    }
+
+    function saveLocalAndBridgeState() {
+      const snapshotObj = serializeCurrentState();
+      const jsonStr = JSON.stringify(snapshotObj);
+      try {
+        localStorage.setItem(LOCAL_STORAGE_KEY, jsonStr);
+      } catch (_) {}
+
+      try {
+        const bridge = getBridge();
+        if (bridge && typeof bridge.saveDataJson === "function") {
+          bridge.saveDataJson(jsonStr);
+        }
+      } catch (_) {}
+      return snapshotObj;
+    }
+
+    async function patchLicenseToFirebase(canonUuid, licenseRecord) {
+      saveLocalAndBridgeState();
+      try {
+        const res = await fetch(`${RTDB_URL}/licenses/${encodeURIComponent(canonUuid)}.json`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(licenseRecord)
+        });
+        connStatus.textContent = res.ok ? "● Synced License & Profit with Firebase" : "● Synced Locally";
+      } catch (_) {
+        connStatus.textContent = "● Synced Locally";
+      }
+    }
+
+    async function patchChipsToFirebase(chipsPatchObj) {
+      saveLocalAndBridgeState();
+      try {
+        const res = await fetch(`${RTDB_URL}/ic_chips.json`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(chipsPatchObj)
+        });
+        connStatus.textContent = res.ok ? "● Synced with Firebase RTDB & App" : "● Synced Locally";
+      } catch (_) {
+        connStatus.textContent = "● Synced Locally";
+      }
+    }
+
+    async function patchGroupPricesToFirebase(pricesPatchObj) {
+      saveLocalAndBridgeState();
+      try {
+        const res = await fetch(`${RTDB_URL}/group_prices.json`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(pricesPatchObj)
+        });
+        connStatus.textContent = res.ok ? "● Synced with Firebase RTDB & App" : "● Synced Locally";
+      } catch (_) {
+        connStatus.textContent = "● Synced Locally";
+      }
+    }
+
+    function loadInitialLocalAndBridgeState() {
+      try {
+        const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+        if (saved) {
+          applyRawSnapshotObject(JSON.parse(saved), false);
+        }
+      } catch (_) {}
+
+      try {
+        const bridge = getBridge();
+        if (bridge && typeof bridge.getDataJson === "function") {
+          const bridgeJson = bridge.getDataJson();
+          if (bridgeJson) {
+            applyRawSnapshotObject(JSON.parse(bridgeJson), false);
+          }
+        }
+      } catch (_) {}
+
+      renderAll();
+    }
+
+    async function syncFromFirebaseRemote() {
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 5000);
+        const res = await fetch(`${RTDB_URL}/.json`, { signal: controller.signal });
+        clearTimeout(timer);
+
+        if (!res.ok) {
+          connStatus.textContent = "● Offline / App Synced";
+          renderAll();
+          return;
+        }
+
+        const data = await res.json();
+        if (data && typeof data === "object") {
+          applyRawSnapshotObject(data, true);
+        } else {
+          dbChipsMap = {};
+          groupPricesMap = {};
+          licensesMap = {};
+        }
+        saveLocalAndBridgeState();
+        connStatus.textContent = "● Connected to new-emmc-default-rtdb";
+      } catch (_) {
+        connStatus.textContent = "● App Bridge Active";
+      }
+      renderAll();
+    }
+
+    function parseBulkIcText(rawText) {
+      const results = [];
+      const rawLines = (rawText || "")
+        .split(/\r?\n/)
+        .map(l => l.trim())
+        .filter(Boolean);
+
+      const lines = [];
+      for (const rawLine of rawLines) {
+        if (
+          lines.length > 0 &&
+          lines[lines.length - 1].trimEnd().endsWith("-") &&
+          !/^[\s•▪▫●○◦‣⁃*+\-\u2022]*\[/.test(rawLine) &&
+          !/^(ram|rom|storage|group|ic|part)\b/i.test(rawLine)
+        ) {
+          lines[lines.length - 1] = lines[lines.length - 1].trimEnd() + rawLine.trimStart();
+        } else {
+          lines.push(rawLine);
+        }
+      }
+
+      let curPart = null, curRam = null, curRom = null, curGroup = null;
+      let activeSectionGroup = null, activeSectionRam = null, activeSectionRom = null;
+
+      function flushLabeled() {
+        if (curPart && curRam && curRom && (curGroup || activeSectionGroup)) {
+          const p = cleanPartToken(curPart);
+          const g = cleanGroupToken(curGroup || activeSectionGroup || "");
+          if (p && canonicalPartKey(p)) {
+            results.push({
+              partNumber: p,
+              ram: cleanCapacityToken(curRam),
+              rom: cleanCapacityToken(curRom),
+              group: g || "---"
+            });
+          }
+          curPart = null; curRam = null; curRom = null; curGroup = null;
+        }
+      }
+
+      for (const rawLine of lines) {
+        const bracketMatch = rawLine.match(/^\[\s*([^\]]+?)\s*\](.*)$/);
+        if (bracketMatch) {
+          flushLabeled();
+          const headerGrp = cleanGroupToken(bracketMatch[1]);
+          if (headerGrp) activeSectionGroup = headerGrp;
+          const tailNums = (bracketMatch[2] || "").trim().split(/\s+/).filter(Boolean);
+          if (tailNums.length >= 2 && /^\d+(?:GB|MB)?$/i.test(tailNums[0]) && /^\d+(?:GB|MB)?$/i.test(tailNums[1])) {
+            activeSectionRam = cleanCapacityToken(tailNums[0]);
+            activeSectionRom = cleanCapacityToken(tailNums[1]);
+          }
+          continue;
+        }
+
+        const line = rawLine.replace(/^[\s•▪▫●○◦‣⁃*+\-\u2022\u2023\u25E6\u2043\u2219]+/, "").trim();
+        if (!line) continue;
+
+        const ramMatch = line.match(/^ram\s*[-:=.]+\s*(.+)$/i);
+        if (ramMatch) { curRam = cleanCapacityToken(ramMatch[1]); flushLabeled(); continue; }
+
+        const romMatch = line.match(/^(?:rom|storage)\s*[-:=.]+\s*(.+)$/i);
+        if (romMatch) { curRom = cleanCapacityToken(romMatch[1]); flushLabeled(); continue; }
+
+        const grpMatch = line.match(/^group\s*[-:=.]+\s*(.+)$/i);
+        if (grpMatch) { curGroup = cleanGroupToken(grpMatch[1]); flushLabeled(); continue; }
+
+        const partMatch = line.match(/^(?:ic|part|part\s*number)\s*[-:=.]+\s*(.+)$/i);
+        if (partMatch) { flushLabeled(); curPart = cleanPartToken(partMatch[1]); continue; }
+
+        const fourColMatch = line.match(/^(.+?)\s+(\d+(?:\.\d+)?(?:GB|MB)?)[.,;]*\s+(\d+(?:\.\d+)?(?:GB|MB)?)[.,;]*\s+([A-Za-z0-9()][A-Za-z0-9().\-_]*)$/i);
+        if (fourColMatch) {
+          const candidatePart = cleanPartToken(fourColMatch[1]);
+          const candidateRam = cleanCapacityToken(fourColMatch[2]);
+          const candidateRom = cleanCapacityToken(fourColMatch[3]);
+          const candidateGroup = cleanGroupToken(fourColMatch[4]);
+          if (candidatePart && canonicalPartKey(candidatePart) && candidateGroup && !/^(ram|rom|storage|group)$/i.test(candidatePart)) {
+            flushLabeled();
+            activeSectionGroup = candidateGroup;
+            results.push({
+              partNumber: candidatePart,
+              ram: candidateRam,
+              rom: candidateRom,
+              group: candidateGroup
+            });
+            continue;
+          }
+        }
+
+        const threeColMatch = line.match(/^(.+?)\s+(\d+(?:\.\d+)?(?:GB|MB)?)[.,;]*\s+(\d+(?:\.\d+)?(?:GB|MB)?)[.,;]*$/i);
+        if (threeColMatch) {
+          const candidatePart = cleanPartToken(threeColMatch[1]);
+          const candidateRam = cleanCapacityToken(threeColMatch[2]);
+          const candidateRom = cleanCapacityToken(threeColMatch[3]);
+          const effectiveGroup = activeSectionGroup || curGroup || "---";
+          if (candidatePart && canonicalPartKey(candidatePart) && !/^(ram|rom|storage|group)$/i.test(candidatePart)) {
+            flushLabeled();
+            results.push({
+              partNumber: candidatePart,
+              ram: candidateRam,
+              rom: candidateRom,
+              group: effectiveGroup
+            });
+            continue;
+          }
+        }
+
+        flushLabeled();
+        const cleanedSinglePart = cleanPartToken(line);
+        if (cleanedSinglePart && canonicalPartKey(cleanedSinglePart)) {
+          if (activeSectionGroup && activeSectionRam && activeSectionRom) {
+            results.push({
+              partNumber: cleanedSinglePart,
+              ram: activeSectionRam,
+              rom: activeSectionRom,
+              group: activeSectionGroup
+            });
+          } else {
+            curPart = cleanedSinglePart;
+            curRam = null; curRom = null; curGroup = null;
+          }
+        }
+      }
+      flushLabeled();
+      return results;
+    }
+
+    function parseGroupPricesText(rawText) {
+      const map = {};
+      const lines = (rawText || "").split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      const pairRegex = /([A-Za-z0-9_()\-]+)[.\s\-:=,]+([0-9][0-9,]*(?:\.[0-9]+)?)/g;
+      for (const line of lines) {
+        let m;
+        pairRegex.lastIndex = 0;
+        while ((m = pairRegex.exec(line)) !== null) {
+          const grp = cleanGroupToken(m[1]);
+          const price = Number(m[2].replace(/,/g, ""));
+          if (grp && !isNaN(price)) {
+            map[grp] = price;
+          }
+        }
+      }
+      return map;
+    }
+
+    function renderAll() {
+      renderLicensesAndProfit();
+      renderGroupPrices();
+      renderIcTable();
+      renderBulkPreview();
+    }
+
+    function renderLicensesAndProfit() {
+      const allSales = Object.values(licensesMap).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+      const totalSold = allSales.length;
+      const totalProfit = totalSold * LICENSE_PRICE_MMK;
+
+      totalSoldCountText.textContent = String(totalSold);
+      totalProfitMmkText.textContent = formatMmk(totalProfit);
+
+      const q = (licenseSearchInput.value || "").trim().toLowerCase();
+      const filtered = allSales.filter(item => {
+        if (!q) return true;
+        return (
+          (item.customerName || "").toLowerCase().includes(q) ||
+          (item.deviceUuid || "").toLowerCase().includes(q) ||
+          (item.activationKey || "").toLowerCase().includes(q)
+        );
+      });
+
+      licenseCountBadge.textContent = filtered.length;
+      if (filtered.length === 0) {
+        licenseTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--muted); padding:20px;">ရောင်းချပြီးသော License Key မရှိသေးပါ။ ဘယ်ဘက်ရှိ 1-Device Key Generator တွင် UUID ထည့်၍ Key ထုတ်နိုင်ပါသည်။</td></tr>`;
+        return;
+      }
+
+      licenseTableBody.innerHTML = filtered.map(item => `
+        <tr>
+          <td style="font-weight:700;">${item.customerName || "-"}</td>
+          <td class="mono" style="color:var(--primary);">${item.deviceUuid}</td>
+          <td class="mono">${item.activationKey}</td>
+          <td><span class="badge-profit">+${formatMmk(item.priceMmk || LICENSE_PRICE_MMK)}</span></td>
+          <td class="mono" style="font-size:11.5px; color:var(--muted);">${formatDateText(item.createdAt)}</td>
+          <td>
+            <div style="display:flex; gap:6px;">
+              <button class="btn btn-outline" style="padding:5px 9px; font-size:11.5px;" onclick="window.copyLicenseKey('${item.activationKey}', this)">Copy</button>
+              <button class="btn btn-danger" onclick="window.deleteLicense('${item.canonicalUuid}')">Revoke</button>
+            </div>
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    function renderGroupPrices() {
+      const entries = Object.entries(groupPricesMap).sort((a, b) => a[0].localeCompare(b[0]));
+      groupCountBadge.textContent = entries.length;
+      if (entries.length === 0) {
+        groupPriceTableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:var(--muted);">No Group Prices configured yet.</td></tr>`;
+        return;
+      }
+      groupPriceTableBody.innerHTML = entries.map(([grp, price]) => `
+        <tr>
+          <td><span class="badge-group">${grp}</span></td>
+          <td class="mono" style="color:var(--primary);">${price}</td>
+          <td><button class="btn btn-danger" onclick="window.deleteGroupPrice('${grp}')">Delete</button></td>
+        </tr>
+      `).join("");
+    }
+
+    function renderIcTable() {
+      const q = (searchFilterInput.value || "").trim().toLowerCase().replace(/[^a-z0-9]/g, "");
+      const list = Object.values(dbChipsMap)
+        .filter(item => {
+          if (!q) return true;
+          const pNorm = item.partNumber.toLowerCase().replace(/[^a-z0-9]/g, "");
+          const gNorm = item.group.toLowerCase().replace(/[^a-z0-9]/g, "");
+          return pNorm.includes(q) || gNorm.includes(q);
+        })
+        .sort((a, b) => a.partNumber.localeCompare(b.partNumber));
+
+      icCountBadge.textContent = list.length;
+      if (list.length === 0) {
+        icTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--muted); padding:24px;">No IC records found. Database is empty.</td></tr>`;
+        return;
+      }
+      icTableBody.innerHTML = list.map(item => {
+        const groupPrice = groupPricesMap[item.group];
+        const priceDisplay = groupPrice !== undefined ? groupPrice : "---";
+        const safeKey = canonicalPartKey(item.partNumber);
+        return `
+          <tr>
+            <td class="mono">${item.partNumber}</td>
+            <td class="mono">${item.ram}</td>
+            <td class="mono">${item.rom}</td>
+            <td><span class="badge-group">${item.group}</span></td>
+            <td class="mono" style="color:var(--primary);">${priceDisplay}</td>
+            <td>
+              <button class="btn btn-danger" onclick="window.deleteIc('${safeKey}')">Delete</button>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function renderBulkPreview() {
+      const parsed = parseBulkIcText(bulkIcTextarea.value);
+      if (parsed.length === 0) {
+        bulkPreviewArea.style.display = "none";
+        return;
+      }
+      bulkPreviewArea.style.display = "block";
+      const seenInBatch = new Set();
+      bulkPreviewBody.innerHTML = parsed.map(item => {
+        const canonKey = canonicalPartKey(item.partNumber);
+        const existsInDb = Boolean(dbChipsMap[canonKey]);
+        const dupInBatch = seenInBatch.has(canonKey);
+        seenInBatch.add(canonKey);
+        const isSkip = existsInDb || dupInBatch;
+        return `
+          <tr>
+            <td class="mono">${item.partNumber}</td>
+            <td class="mono">${item.ram}</td>
+            <td class="mono">${item.rom}</td>
+            <td class="mono">${item.group}</td>
+            <td>${isSkip ? '<span class="badge-skip">ရှိပြီးသား (ချန်ထားမည်)</span>' : '<span class="badge-new">အသစ် (ထည့်မည်)</span>'}</td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    // --- Event Listeners for 1-Device Key Generator & Profit ---
+    keyGenForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const rawUuid = customerUuidInput.value.trim();
+      const displayUuid = formatUuidDisplay(rawUuid);
+      const canonUuid = normalizeUuid(displayUuid);
+      if (!canonUuid || canonUuid.length < 4) {
+        showBoxMessage(licenseStatusBox, "Customer ၏ Device UUID ကို မှန်ကန်စွာ ထည့်သွင်းပါ (ဥပမာ PYONE-A1B2-C3D4)။", true);
+        return;
+      }
+
+      const generatedKey = generateKeyForUuid(displayUuid);
+      const customerName = customerNameInput.value.trim() || `Customer (${displayUuid})`;
+      const existing = licensesMap[canonUuid];
+
+      const record = {
+        canonicalUuid: canonUuid,
+        deviceUuid: displayUuid,
+        activationKey: generatedKey,
+        customerName,
+        priceMmk: LICENSE_PRICE_MMK,
+        createdAt: existing ? existing.createdAt : Date.now()
+      };
+
+      licensesMap[canonUuid] = record;
+
+      generatedForUuidLabel.textContent = displayUuid;
+      generatedKeyText.textContent = generatedKey;
+      generatedKeyResultBox.style.display = "block";
+
+      customerUuidInput.value = "";
+      customerNameInput.value = "";
+
+      renderAll();
+      await patchLicenseToFirebase(canonUuid, record);
+
+      showBoxMessage(
+        licenseStatusBox,
+        `Device UUID "${displayUuid}" အတွက် Lifetime Key (${generatedKey}) ထုတ်ပေးပြီး +30,000 MMK စာရင်းသွင်းပြီးပါပြီ။`,
+        false
+      );
+    });
+
+    copyGeneratedKeyBtn.addEventListener("click", () => {
+      copyToClipboard(generatedKeyText.textContent, copyGeneratedKeyBtn, "📋 Copy Activation Key");
+    });
+
+    licenseSearchInput.addEventListener("input", renderLicensesAndProfit);
+
+    window.copyLicenseKey = (key, btnEl) => {
+      copyToClipboard(key, btnEl, "Copy");
+    };
+
+    window.deleteLicense = async (canonUuid) => {
+      if (!canonUuid) return;
+      delete licensesMap[canonUuid];
+      renderAll();
+      saveLocalAndBridgeState();
+
+      try {
+        const bridge = getBridge();
+        if (bridge && typeof bridge.deleteLicense === "function") {
+          bridge.deleteLicense(canonUuid);
+        }
+      } catch (_) {}
+
+      try {
+        await fetch(`${RTDB_URL}/licenses/${encodeURIComponent(canonUuid)}.json`, { method: "DELETE" });
+      } catch (_) {}
+    };
+
+    tabSingleBtn.addEventListener("click", () => {
+      tabSingleBtn.classList.add("active");
+      tabBulkBtn.classList.remove("active");
+      singleIcForm.style.display = "block";
+      bulkIcSection.style.display = "none";
+    });
+
+    tabBulkBtn.addEventListener("click", () => {
+      tabBulkBtn.classList.add("active");
+      tabSingleBtn.classList.remove("active");
+      singleIcForm.style.display = "none";
+      bulkIcSection.style.display = "block";
+    });
+
+    bulkIcTextarea.addEventListener("input", renderBulkPreview);
+    searchFilterInput.addEventListener("input", renderIcTable);
+    document.getElementById("refreshBtn").addEventListener("click", syncFromFirebaseRemote);
+
+    singleIcForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const part = cleanPartToken(document.getElementById("singlePartNumber").value);
+      const canonKey = canonicalPartKey(part);
+      const ram = cleanCapacityToken(document.getElementById("singleRam").value);
+      const rom = cleanCapacityToken(document.getElementById("singleRom").value);
+      const group = cleanGroupToken(document.getElementById("singleGroup").value);
+
+      if (!part || !canonKey || !ram || !rom || !group) return;
+
+      if (dbChipsMap[canonKey]) {
+        showBoxMessage(icStatusBox, `"${part}" သည် Database ထဲတွင် ရှိပြီးသားဖြစ်၍ လက်မခံပါ (ချန်ထားခဲ့ပါသည်)။`, true);
+        return;
+      }
+
+      const record = {
+        partNumber: part,
+        ram,
+        rom,
+        group,
+        ramSpec: ram,
+        storageSpec: rom,
+        groupCode: group,
+        updatedAt: Date.now()
+      };
+      dbChipsMap[canonKey] = { key: canonKey, ...record };
+
+      singleIcForm.reset();
+      renderAll();
+      await patchChipsToFirebase({ [canonKey]: record });
+      showBoxMessage(icStatusBox, `IC အသစ် "${part}" (RAM: ${ram}, ROM: ${rom}, GROUP: ${group}) ကို သိမ်းဆည်းပြီးပါပြီ။`, false);
+    });
+
+    saveBulkBtn.addEventListener("click", async () => {
+      const parsed = parseBulkIcText(bulkIcTextarea.value);
+      if (parsed.length === 0) {
+        showBoxMessage(icStatusBox, "Copy-Paste Data မတွေ့ပါ။ ဥပမာ - B514. KKMV500 4 64 515A သို့မဟုတ် [ 705(A) ] 8 128 အောက်တွင် • B813-KM8V7001JA 8 128 ပုံစံဖြင့် ထည့်ပါ။", true);
+        return;
+      }
+
+      const addedList = [];
+      const skippedList = [];
+      const patchPayload = {};
+
+      for (const item of parsed) {
+        const part = cleanPartToken(item.partNumber);
+        const canonKey = canonicalPartKey(part);
+        if (!part || !canonKey) continue;
+
+        if (dbChipsMap[canonKey]) {
+          skippedList.push(part);
+        } else {
+          const record = {
+            partNumber: part,
+            ram: cleanCapacityToken(item.ram),
+            rom: cleanCapacityToken(item.rom),
+            group: cleanGroupToken(item.group),
+            ramSpec: cleanCapacityToken(item.ram),
+            storageSpec: cleanCapacityToken(item.rom),
+            groupCode: cleanGroupToken(item.group),
+            updatedAt: Date.now()
+          };
+          dbChipsMap[canonKey] = { key: canonKey, ...record };
+          patchPayload[canonKey] = record;
+          addedList.push(part);
+        }
+      }
+
+      bulkIcTextarea.value = "";
+      bulkPreviewArea.style.display = "none";
+      renderAll();
+      if (addedList.length > 0) {
+        await patchChipsToFirebase(patchPayload);
+      }
+
+      const msg = `အသစ်ထည့်သွင်းပြီး: ${addedList.length} ခု` +
+        (skippedList.length > 0 ? ` | ရှိပြီးသားဖြစ်၍ ချန်ထားခဲ့သည် (${skippedList.length} ခု): ${skippedList.join(", ")}` : "");
+      showBoxMessage(icStatusBox, msg, addedList.length === 0);
+    });
+
+    saveGroupPricesBtn.addEventListener("click", async () => {
+      const parsedPrices = parseGroupPricesText(groupPriceTextarea.value);
+      const keys = Object.keys(parsedPrices);
+      if (keys.length === 0) {
+        showBoxMessage(priceStatusBox, "Group နှင့် Price ကို ဥပမာ `515A 10000` ပုံစံဖြင့် ရေးပါ။", true);
+        return;
+      }
+
+      const patchPayload = {};
+      for (const [grp, price] of Object.entries(parsedPrices)) {
+        const cleanGrp = cleanGroupToken(grp);
+        groupPricesMap[cleanGrp] = price;
+        patchPayload[sanitizeKey(cleanGrp)] = price;
+      }
+
+      groupPriceTextarea.value = "";
+      renderAll();
+      await patchGroupPricesToFirebase(patchPayload);
+      showBoxMessage(priceStatusBox, `Group ဈေးနှုန်း (${keys.length}) ခု ထပ်ပေါင်းသိမ်းဆည်းပြီးပါပြီ။ စုစုပေါင်း Group (${Object.keys(groupPricesMap).length}) ခု ရှိပါသည်။`, false);
+    });
+
+    clearAllIcBtn.addEventListener("click", async () => {
+      dbChipsMap = {};
+      renderAll();
+      saveLocalAndBridgeState();
+      try {
+        await fetch(`${RTDB_URL}/ic_chips.json`, { method: "DELETE" });
+        connStatus.textContent = "● Cleared All ICs from Firebase RTDB";
+      } catch (_) {}
+      showBoxMessage(icStatusBox, "Database ထဲရှိ IC List အားလုံးကို ရှင်းလင်းပြီးပါပြီ။", false);
+    });
+
+    window.deleteIc = async (partOrKey) => {
+      const canonKey = canonicalPartKey(partOrKey);
+      if (!canonKey) return;
+      const existing = dbChipsMap[canonKey];
+      const partName = existing ? existing.partNumber : cleanPartToken(partOrKey);
+      delete dbChipsMap[canonKey];
+      renderAll();
+      saveLocalAndBridgeState();
+
+      try {
+        const bridge = getBridge();
+        if (bridge && typeof bridge.deleteIc === "function") {
+          bridge.deleteIc(partName);
+        }
+      } catch (_) {}
+
+      try {
+        await fetch(`${RTDB_URL}/ic_chips/${encodeURIComponent(canonKey)}.json`, { method: "DELETE" });
+      } catch (_) {}
+    };
+
+    window.deleteGroupPrice = async (grp) => {
+      const cleanGrp = cleanGroupToken(grp);
+      if (!cleanGrp) return;
+      delete groupPricesMap[cleanGrp];
+      renderAll();
+      saveLocalAndBridgeState();
+
+      try {
+        const bridge = getBridge();
+        if (bridge && typeof bridge.deleteGroupPrice === "function") {
+          bridge.deleteGroupPrice(cleanGrp);
+        }
+      } catch (_) {}
+
+      try {
+        const key = sanitizeKey(cleanGrp);
+        await fetch(`${RTDB_URL}/group_prices/${encodeURIComponent(key)}.json`, { method: "DELETE" });
+      } catch (_) {}
+    };
+
+    loadInitialLocalAndBridgeState();
+    syncFromFirebaseRemote();
+  </script>
+</body>
+</html>
